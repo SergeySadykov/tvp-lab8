@@ -64,7 +64,8 @@ class App
    	return $this->call($url);
    }
 
-   function call($url = ''){
+   function call($url = '')
+   {
 		if(function_exists('curl_init'))
 			$json = $this->curl_post($url);
 		else
