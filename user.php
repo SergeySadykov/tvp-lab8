@@ -38,7 +38,7 @@
 
 		public getUserInfo()
 		{
-
+			return true;
 		}
 
 	}
