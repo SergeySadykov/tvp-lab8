@@ -88,7 +88,7 @@
 
 		public function getAge()
 		{
-			if (!empty($this->bdate))
+			if ( !empty($this->bdate) )
 			{
 				$now = new DateTime();
 				$bdate = new DateTime($this->bdate);
