@@ -1,43 +1,99 @@
 <?php
 	class User{
+
 		public $id;
 		public $first_name;
 		public $last_name;
-		public $deactivated;
-		public $hidden = 1;
-
-		public $photo_id;
-		public $verified;
-		public $blacklisted;
 		public $sex;
-		public $city;
-		public $country;
-		public $home_town;
+		public $domain;
+		public $bdate;
+		public $screen_name;
+		public $maiden_name;
+		public $crop_photo;
+		public $is_friend;
+		public $friend_status;
+		public $city = array();
+		public $country = array();
+		public $timezone;
 		public $photo_50;
 		public $photo_100;
-		public $photo_200_orig;
 		public $photo_200;
+		public $photo_max;
+		public $photo_200_orig;
 		public $photo_400_orig;
-		public $photo_400_max;
-		public $photo_400_max_orig;
-		public $online;
-		public $lists;
-		public $domain;
+		public $photo_max_orig;
+		public $photo_id;
 		public $has_mobile;
-		public $contacts;
+		public $online;
+		public $can_post;
+		public $can_see_all_posts;
+		public $can_see_audio;
+		public $can_write_private_message;
+		public $can_send_friend_request;
+		public $is_favorite;
+		public $mobile_phone;
+		public $home_phone;
+		public $home_town;
 		public $site;
-		public $education;
-		public $universities;
-		public $schools;
 		public $status;
-		public $last_seen;
-		public $followers_count;
+		public $last_seen = array();
 		public $common_count;
-		public $counters;
+		public $followers_count;
+		public $counters = array();
+		public $university;
+		public $university_name;
+		public $faculty;
+		public $faculty_name;
+		public $graduation;
+		public $relation;
+		public $personal = array();
+		public $interests;
+		public $music;
+		public $activities;
+		public $movies;
+		public $tv;
+		public $books;
+		public $games;
+		public $universities = array();
+		public $schools = array();
+		public $about;
+		public $relatives = array();
+		public $quotes;
+		public $education;
+		public $contacts;
+		public $lists;
+		public $blacklisted;
+		public $verified;
+		public $hidden;
+		public $deactivated;
+		public $occupation;
+		public $nickname;
+		public $connections;
+		public $exports;
+		public $wall_comments;
 
-		public getUserInfo()
+		public function __construct($a)
 		{
-			return true;
+			if (!empty($a))
+			{
+				foreach ($this as $key => $property)
+				{
+					if (!empty($a[$key]))
+					{
+						$this->$key = $a[$key];
+					}
+				}
+			}
 		}
 
+		public function getAge()
+		{
+			if (!empty($this->bdate))
+			{
+				$now = new DateTime();
+				$bdate = new DateTime($this->bdate);
+				$interval = $now->diff($bdate);
+				return $interval->y;
+			}
+		}
 	}
