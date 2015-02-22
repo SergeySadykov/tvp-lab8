@@ -9,62 +9,40 @@ function mpr($data)
 
 class App
 {
+	const TOKEN = 'cd5ac02646a60d0ed7137aa3c5a0c8a42a48f61a1bec97593cf35fa10115fdafed47ab5a8a60651808f8e';
 	const API_VERSION = '5.28';
 	const CALLBACK_BLANK = 'https://oauth.vk.com/blank.html';
-	const AUTHORIZE_URL = 'https://oauth.vk.com/authorize?client_id={client_id}&scope={scope}&redirect_uri={redirect_uri}&display={display}&v=5.24&response_type={response_type}';
+	const AUTHORIZE_URL = 'https://oauth.vk.com/authorize?client_id={client_id}&scope={scope}&redirect_uri={redirect_uri}&display={display}&v=5.28&response_type={response_type}';
 	const GET_TOKEN_URL = 'https://oauth.vk.com/access_token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}';
 	const METHOD_URL = 'https://api.vk.com/method/';
+	const SECRET_KEY = 'dqnkus3pkAwJxhq7CQMd';
+	const SCOPE = array('groups,wall,friends,photos,audio,video,docs,notes,pages,status,messages,email,notifications,stats,offline');
+	const CLIENT_ID = '4777791';
 
-	public $secret_key = null;
-	public $scope = array();
-	public $client_id = null;
-	public $access_token = null;
-
-	public function __construct($options = array())
-	{
-		$this->scope[]='offline';
-		$this->scope[]='groups';
-		if(count($options) > 0)
-		{
-			foreach($options as $key => $value)
-			{
-				if($key == 'scope' && is_string($value))
-				{
-					$_scope = explode(',', $value);
-					$this->scope = array_merge($this->scope, $_scope);
-				}
-				else
-				{
-					$this->$key = $value;
-				}
-			}
-		}
-	}
-
-	public function get_code_token($type="code")
+	public static function get_code_token($type="code")
 	{
 		$url = self::AUTHORIZE_URL;
-		$scope = implode(',', $this->scope);
-		$url = str_replace('{client_id}', $this->client_id, $url);
+		$scope = implode(',', self::SCOPE);
+		$url = str_replace('{client_id}', self::CLIENT_ID, $url);
 		$url = str_replace('{scope}', $scope, $url);
 		$url = str_replace('{redirect_uri}', self::CALLBACK_BLANK, $url);
 		$url = str_replace('{display}', 'page', $url);
 		$url = str_replace('{response_type}', $type, $url);
 		return $url;
-   }
+	}
 
-   public function get_token($code)
-   {
-   	$url = self::GET_TOKEN_URL;
-   	$url = str_replace('{code}', $code, $url);
-   	$url = str_replace('{client_id}', $this->client_id, $url);
-   	$url = str_replace('{client_secret}', $this->secret_key, $url);
-   	$url = str_replace('{redirect_uri}', self::CALLBACK_BLANK, $url);
-   	return $this->call($url);
-   }
+	public static function get_token($code)
+	{
+		$url = self::GET_TOKEN_URL;
+		$url = str_replace('{code}', $code, $url);
+		$url = str_replace('{client_id}', self::CLIENT_ID, $url);
+		$url = str_replace('{client_secret}', self::SECRET_KEY, $url);
+		$url = str_replace('{redirect_uri}', self::CALLBACK_BLANK, $url);
+		return self::call($url);
+	}
 
-   public static function call($url = '')
-   {
+	private static function call($url = '')
+	{
 		if(function_exists('curl_init'))
 			$json = self::curl_post($url);
 		else
@@ -106,5 +84,63 @@ class App
 			return $out;
 		}
 		return false;
+	}
+
+	public function api($method = '', $vars = array())
+	{
+		$vars['v'] = self::API_VERSION;
+		$params = http_build_query($vars);
+		$url = self::http_build_query($method, $params);
+		return (array)self::call($url);
+	}
+
+	private static function http_build_query($method, $params = '')
+	{
+		return self::METHOD_URL.$method.'?'.$params.'&access_token='.self::TOKEN;
+	}
+
+	public static function upload_photo($gid = false, $files = array())
+	{
+		$gid = substr(Api::getPlusMinusId($gid),1);
+		if(count($files) == 0) return false;
+		if(!function_exists('curl_init')) return false;
+
+		$data_json = self::api('photos.getWallUploadServer', array('group_id'=> intval($gid)));
+		if(!isset($data_json['upload_url'])) return false;
+
+		$temp = array_chunk($files, 4);
+		$files = array();
+		foreach ($temp[0] as $key => $data)
+		{
+			$path = realpath($data);
+			if($path)
+			{
+				$files['file' . ($key+1)] = (class_exists('CURLFile', false)) ? new CURLFile(realpath($data)):'@'. realpath($data);
+			}
+		}
+
+		$upload_url = $data_json['upload_url'];
+		$ch = curl_init($upload_url);
+		$useragent='Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3';
+		curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+	  	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	  	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $files);
+
+		$upload_data = json_decode(curl_exec($ch), true);
+		$upload_data['group_id'] = intval($gid);
+		$response = self::api('photos.saveWallPhoto', $upload_data);
+		$attachments = array();
+		if(count($response) > 0)
+		{
+		   foreach($response as $photo)
+		   {
+		 		$attachments[] = $photo['id'];
+			}
+		}
+		return $attachments;
 	}
 }

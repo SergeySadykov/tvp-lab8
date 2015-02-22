@@ -1,2 +1,10 @@
 # tvp-lab8
-Token: 1e15858ca0a85c0814f5baa4bfc70eff720dc52d4deafb2f5acc0f2d4807897df5a73d8d6f8f246990bcd
+
+### Получаем ссылку для аутентификации пользователя, разрешаем доступ к данным
+$url = App::get_code_token();
+echo $url;
+
+### Из адресной строки берем значение code и передаем в get_token для получения access_token
+$resp = App::get_token( <code> );
+
+Из массива значение access_token присваем константе TOKEN в App.php
