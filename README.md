@@ -7,4 +7,4 @@ echo $url;
 ### Из адресной строки берем значение code и передаем в get_token для получения access_token
 $resp = App::get_token( <code> );
 
-Из массива значение access_token присваем константе TOKEN в App.php
+Из массива значение <access_token> присваем константе TOKEN в App.php
