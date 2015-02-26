@@ -7,7 +7,6 @@
 </head>
 <body>
 	<?php
-		require_once('../parses/Api.php');
 		require_once('../parses/App.php');
 		require_once('../parses/User.php');
 		require_once('../parses/Post.php');
@@ -15,11 +14,11 @@
 		require_once('../parses/Group.php');
 
 		define('UID', 261061018);
-		define('GID', '-twplab');
+		define('GID', 'twplab');
 
-		$uposts = Api::getPosts(UID, 3);
-		$gposts = Api::getPosts(GID, 3);
-		$user = Api::getUser(UID);
+		$uposts = User::getPosts(UID, 3);
+		$gposts = Group::getPosts(GID, 10);
+		$user = User::getUser(UID);
 	?>
 
 	<header>
@@ -49,7 +48,7 @@
 				<h4>Стена пользователя</h4>
 				<?foreach ($uposts as $key => $post)
 				{?>
-					<? $author = Api::getUser($post->from_id); ?>
+					<? $author = User::getUser($post->from_id); ?>
 					<article class="post">
 
 						<div class="post-photo">
@@ -84,11 +83,11 @@
 						<div class="clear"></div>
 
 					</article>
-					<? $comments = Api::getComments($post->owner_id, $post->id, 10) ?>
+					<? $comments = User::getComments($post->owner_id, $post->id, 10) ?>
 					<? if(count($comments) > 0) {?>
 						<?foreach ($comments as $key2 => $comment)
 						{?>
-							<?php $c_author = Api::getUser($comment->from_id);	?>
+							<?php $c_author = User::getUser($comment->from_id);	?>
 							<article class="comment">
 
 								<div class="post-photo">
@@ -137,11 +136,11 @@
 						$check = false;
 						if (intval($post->from_id)>0)
 						{
-							$author = Api::getUser($post->from_id);
+							$author = User::getUser($post->from_id);
 							$check = true;
 						}
 						else
-							$author = Api::getGroup(substr($post->from_id, 1));
+							$author = Group::getGroup(substr($post->owner_id, 1));
 					?>
 					<article class="post">
 
@@ -178,11 +177,11 @@
 						<div class="clear"></div>
 
 					</article>
-					<? $comments = Api::getComments($post->owner_id, $post->id, 10) ?>
+					<? $comments = Group::getComments(substr($post->owner_id, 1), $post->id, 10) ?>
 					<? if(count($comments) > 0) {?>
 						<?foreach ($comments as $key2 => $comment)
 						{?>
-							<?php $c_author = Api::getUser($comment->from_id);	?>
+							<?php $c_author = User::getUser($comment->from_id);	?>
 							<article class="comment">
 
 								<div class="post-photo">

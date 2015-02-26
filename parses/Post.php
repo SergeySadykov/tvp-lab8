@@ -41,4 +41,40 @@
 			$date->setTimestamp($this->date);
 			return $date->format('H:i d.m.Y');
 		}
+
+		public static function getPosts($domain, $count = 3, $offset = 0, $extended = 1, $filter = 'all')
+		{
+			$g = Other::getPlusMinusId($domain);
+			$data = App::api('wall.get', array(
+				'owner_id'=> $g,
+				'offset'=>$offset,
+				'extended'=>$extended,
+				'count'=>$count,
+				'filter'=>$filter,
+			));
+			$posts = array();
+			foreach ($data['items'] as $key => $post)
+			{
+				$posts[] = new Post($post);
+			}
+			return $posts;
+		}
+
+		public static function addPost($owner_id, $user_id, $message = '', $attachments = '')
+		{
+			$g = Other::getPlusMinusId($owner_id);
+			$arAttachments = App::upload_photo($g, array($attachments));
+
+			$attachments = array();
+			foreach ($arAttachments as $key => $value)
+			{
+				$attachments[] = 'photo'.$user_id.'_'.$value;
+			}
+			$data = App::api('wall.post', array(
+				'owner_id'=> $g,
+				'message'=>$message,
+				'attachments'=>$attachments
+			));
+			return $data['post_id'];
+		}
 	}

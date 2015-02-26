@@ -9,7 +9,7 @@ function mpr($data)
 
 class App
 {
-	const TOKEN = 'cd5ac02646a60d0ed7137aa3c5a0c8a42a48f61a1bec97593cf35fa10115fdafed47ab5a8a60651808f8e';
+	const TOKEN = 'de840540210806d354dc4c7f032bfb50f60cdb78df41d377c212244fe9bcfdcb523db605d2022adb62b30';
 	const API_VERSION = '5.28';
 	const CALLBACK_BLANK = 'https://oauth.vk.com/blank.html';
 	const AUTHORIZE_URL = 'https://oauth.vk.com/authorize?client_id={client_id}&scope={scope}&redirect_uri={redirect_uri}&display={display}&v=5.28&response_type={response_type}';
@@ -101,7 +101,7 @@ class App
 
 	public static function upload_photo($gid = false, $files = array())
 	{
-		$gid = substr(Api::getPlusMinusId($gid),1);
+		$gid = substr(Other::getPlusMinusId($gid),1);
 		if(count($files) == 0) return false;
 		if(!function_exists('curl_init')) return false;
 
