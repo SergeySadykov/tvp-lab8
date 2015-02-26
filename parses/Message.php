@@ -15,7 +15,6 @@ class Message{
 		$data = App::api('messages.get', array(
 			'count'=> $count,
 		));
-
 		return $data;
 	}
 

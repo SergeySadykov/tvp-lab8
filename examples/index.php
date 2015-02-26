@@ -44,7 +44,6 @@
 			</section>
 			<hr>
 			<section class="wall">
-
 				<h4>Стена пользователя</h4>
 				<?foreach ($uposts as $key => $post)
 				{?>

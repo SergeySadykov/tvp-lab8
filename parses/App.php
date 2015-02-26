@@ -1,4 +1,5 @@
 <?php
+
 function mpr($data)
 {
 	echo "<pre>";
