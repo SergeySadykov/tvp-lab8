@@ -39,6 +39,7 @@
 		{
 			$date = new DateTime();
 			$date->setTimestamp($this->date);
+
 			return $date->format('H:i d.m.Y');
 		}
 

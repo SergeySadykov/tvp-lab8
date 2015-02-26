@@ -113,6 +113,7 @@
 											<img src="<?=$file[$file['type']][$photo]?>" alt="">
 										<?}
 									}?>
+
 									<div class="date"><?=$comment->getDate()?></div>
 								</div>
 

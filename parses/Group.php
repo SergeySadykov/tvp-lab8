@@ -59,6 +59,7 @@
 				'group_id'=> intval($group_id),
 			));
 			$group = new Group($data[0]);
+
 			return $group;
 		}
 
