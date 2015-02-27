@@ -12,6 +12,7 @@
 		require_once('../parses/Post.php');
 		require_once('../parses/Comment.php');
 		require_once('../parses/Group.php');
+		require_once('../parses/Format.php');
 
 		define('UID', 261061018);
 		define('GID', 'twplab');
