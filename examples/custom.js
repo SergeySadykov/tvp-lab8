@@ -16,8 +16,6 @@ $(function()
 		  	data: 'uid='+uid+'&gid='+gid+'&message='+message+'&attachments='+attachments+'&link='+link,
 		  	success: function(msg)
 		  	{
-		  		console.log(msg);
-		  		return false;
 		   	alert('Запись добавлена!')
 		   	window.location = '/'
 		  	}
