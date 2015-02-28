@@ -144,19 +144,26 @@
 			return $posts;
 		}
 
-		public static function addPost($owner_id, $user_id, $message = '', $attachments = '')
+		public static function addPost($owner_id, $user_id, $message = '', $attachments = '', $link = '')
 		{
-			$arAttachments = App::upload_photo($g, array($attachments));
-
-			$attachments = array();
-			foreach ($arAttachments as $key => $value)
+			$user = self::getUser($owner_id);
+			$attach = array();
+			if (strlen($attachments) > 0)
 			{
-				$attachments[] = 'photo'.$user_id.'_'.$value;
+				$arAttachments = App::upload_photo($user->id, array($attachments));
+				foreach ($arAttachments as $key => $value)
+				{
+					$attach[] = 'photo'.$user_id.'_'.$value;
+				}
+			}
+			if (strlen($link) > 0)
+			{
+				$attach[] = $link;
 			}
 			$data = App::api('wall.post', array(
-				'owner_id'=> $g,
+				'owner_id'=>$user->id,
 				'message'=>$message,
-				'attachments'=>$attachments
+				'attachments'=>$attach
 			));
 			return $data['post_id'];
 		}

@@ -53,10 +53,8 @@
 
 		public static function getGroup($group_id)
 		{
-			mpr($group_id);
-			die();
 			$data = App::api('groups.getById', array(
-				'group_id'=> intval($group_id),
+				'group_id'=> $group_id,
 			));
 			$group = new Group($data[0]);
 			return $group;
@@ -82,19 +80,26 @@
 			return $posts;
 		}
 
-		public static function addPost($owner_id, $user_id, $message = '', $attachments = '')
+		public static function addPost($owner_id, $user_id, $message = '', $attachments = '', $link = '')
 		{
-			$arAttachments = App::upload_photo('-'.$owner_id, array($attachments));
-
-			$attachments = array();
-			foreach ($arAttachments as $key => $value)
+			$group = self::getGroup($owner_id);
+			$attach = array();
+			if (strlen($attachments) > 0)
 			{
-				$attachments[] = 'photo'.$user_id.'_'.$value;
+				$arAttachments = App::upload_photo($group->id, array($attachments));
+				foreach ($arAttachments as $key => $value)
+				{
+					$attach[] = 'photo'.$user_id.'_'.$value;
+				}
+			}
+			if (strlen($link) > 0)
+			{
+				$attach[] = $link;
 			}
 			$data = App::api('wall.post', array(
-				'owner_id'=> '-'.$owner_id,
+				'owner_id'=> '-'.$group->id,
 				'message'=>$message,
-				'attachments'=>$attachments
+				'attachments'=>$attach
 			));
 			return $data['post_id'];
 		}

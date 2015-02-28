@@ -18,7 +18,7 @@
 		define('GID', 'twplab');
 
 		$uposts = User::getPosts(UID, 3);
-		$gposts = Group::getPosts(GID, 10);
+		$gposts = Group::getPosts(GID, 1);
 		$user = User::getUser(UID);
 	?>
 
@@ -166,6 +166,8 @@
 								{?>
 									<? if($file['type'] == 'sticker')
 											$photo = 'photo_128';
+										elseif($file['type'] == 'link')
+											$photo = 'image_src';
 										else
 											$photo = 'photo_604';
 									?>
@@ -219,8 +221,10 @@
 				<?}?>
 				<div class="post-add">
 					<form action="/" method="post">
-						<textarea id="post_text" name="post_text" cols="30" rows="10"></textarea>
+						<textarea id="post_text" name="post_text" cols="30" rows="10" placeholder="Текст"></textarea>
+						<input id="post_link" type="text" name="post_link" placeholder="Ссылка">
 						<select id="post_image" name="post_image">
+							<option value=""></option>
 							<?
 								$max_folder = '../examples/';
 								$max_scan = scandir($max_folder);

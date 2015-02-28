@@ -1,6 +1,5 @@
 <?php
 
-	require_once('../parses/Api.php');
 	require_once('../parses/App.php');
 	require_once('../parses/User.php');
 	require_once('../parses/Post.php');
@@ -11,5 +10,6 @@
 	$gid = $_POST['gid'];
 	$message = $_POST['message'];
 	$attachments = $_POST['attachments'];
+	$link = $_POST['link'];
 
-	$id = Api::addPost($gid, $uid, $message, $attachments);
+	$id = Group::addPost($gid, $uid, $message, $attachments, $link);

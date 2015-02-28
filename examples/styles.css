@@ -117,16 +117,9 @@ figcaption{
 .post-add{
 	margin-top: 10px;
 }
-.post-add select{
-	width: 101px;
-	height: 25px;
-	float: right;
-	margin-bottom: 8px;
-}
 .post-add textarea{
 	width: 85%;
 	border: none;
-	float: left;
 	box-shadow: 0 1px 3px rgba(81, 81, 81, 0.33) inset;
 	height: 80px;
 	margin-top: 0px;
@@ -134,11 +127,24 @@ figcaption{
 	-webkit-transition: all .3s ease;
 	-o-transition: all .3s ease;
 	transition: all .3s ease;
+	box-sizing: border-box;
+	padding: 10px;
+}
+.post-add input, .post-add select{
+	display: block;
+	box-shadow: 0 1px 3px rgba(81, 81, 81, 0.33) inset;
+	border: none;
+	padding: 5px 10px;
+	margin-top: 10px;
+	width: 300px;
+}
+.post-add select{
+	width: 320px;
 }
 input[type=submit]{
 	background: #6383a8;
 	height: 45px;
-	float: right;
+	display: block;
 	width: 100px;
 	border: none;
 	border-radius: 3px;

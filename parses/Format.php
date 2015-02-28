@@ -24,14 +24,24 @@
 		public static function encodeFile($data)
 		{
 			$line = "";
+			$i = 0;
 			foreach ($data as $key => $property)
 			{
 				if (gettype($property) == "array" || gettype($property) == 'object')
-					$line .= User::encodeFile($data->$key);
+					$line .= Format::encodeFile($data->$key);
 				else
+				{
 					if (!empty($property))
-						$line .= $property.";";
+					{
+						$line .= $property;
+						if ($i != count((array)$data)-1)
+						{
+							$line .= ';';
+						}
+					}
+					$i++;
+				}
 			}
-			return $line;
+			return '('.$line.');';
 		}
 	}

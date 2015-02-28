@@ -101,7 +101,6 @@ class App
 
 	public static function upload_photo($gid = false, $files = array())
 	{
-		$gid = substr(Other::getPlusMinusId($gid),1);
 		if(count($files) == 0) return false;
 		if(!function_exists('curl_init')) return false;
 
