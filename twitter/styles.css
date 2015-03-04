@@ -1,0 +1,65 @@
+body {
+	margin: 0;
+	font-family: Arial;
+	color: #00B0ED;
+}
+
+/* Элементы на ленте */
+#ribbon {
+	background-color: #00B0ED;
+	vertical-align: middle;
+	width: auto;
+	margin-bottom: 30px;
+}
+#ribbon h1 {
+	font-size: 18pt;
+	color: white;
+	display: inline;
+}
+#ribbon a {
+	font: 18pt serif;
+	font-style: italic;
+	text-decoration: none;
+	color: white;
+	display: inline;
+}
+#ribbon a:hover {
+	text-decoration: underline;
+}
+#ribbon img {
+	height: 30px;
+	margin: 30px;
+	display: inline;
+}
+/* Обёртка широкая */
+#wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+/* Обёртка на 500 */
+#wrapper500{
+	width: 500px;
+	margin: 0 auto;
+}
+
+input{
+	border-radius: 10px;
+	border: 2px solid #00B0ED;
+	padding: 10px;
+	font-size: 14pt;
+}
+
+/* Таблицы */
+/* Отцентрированная для разметки */
+.centered{
+	vertical-align: middle;
+	text-align: center;
+}
+/* Подписчики */
+.followers{
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+.followers tr td{
+	border: 1px solid black;
+}
