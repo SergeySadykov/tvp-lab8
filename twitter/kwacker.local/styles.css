@@ -1,0 +1,111 @@
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Элементы на ленте */
+#ribbon {
+	background-color: #009900;
+	vertical-align: middle;
+	width: auto;
+	height:100px;
+}
+#ribbon img {
+	height: 80px;
+	padding:10px;
+}
+#logo
+{
+	float:left;
+}
+#kwacker
+{
+	display:block;
+	margin: auto;
+}
+/*Инфа*/
+#wrapper{
+	display: block;
+	margin: 0 auto;
+}
+#wrapper h3, h1
+{
+	font-family: Arial;
+	color: #009900;
+	text-align:center;
+}
+/*наши подписчики*/
+.followers
+{
+	float: left; 
+	width: 50%; 
+	height:100%; 
+	overflow: auto;
+}
+.maintable img
+{
+	width:20px;
+	margin:5px;	
+	float:left;
+}
+.maintable h4
+{
+	margin: 5px;
+	float: right;
+	font-weight: normal;
+}
+.maintable td
+{
+	vertical-align:middle;
+	background-color:#ffffff;
+	border:0px solid #009900;
+	border-width:1px 1px 1px 1px;
+	text-align:left;
+	padding:5px 5px;;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+	
+}
+.followers table
+{
+	margin-left:15px;
+	border-collapse:collapse;
+	width:80%;
+}
+.myButton {
+	background-color:#e3e3e3;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:9px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:arial;
+	font-size:17px;
+	padding:0px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#d4d4d4;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+/*Мы подписаны*/
+.following
+{
+	height:100%; 
+	margin-left: 50%;
+	overflow: auto;
+}
+.following table
+{
+	margin-left:15px;
+	border-collapse:collapse;
+	width:80%;
+}
