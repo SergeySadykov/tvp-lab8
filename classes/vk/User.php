@@ -129,8 +129,9 @@
 
 		public static function getPosts($domain, $count = 3, $offset = 0, $extended = 1, $filter = 'all')
 		{
+			$user = self::getUser($domain);
 			$data = App::api('wall.get', array(
-				'owner_id'=> $domain,
+				'owner_id'=> $user->id,
 				'offset'=>$offset,
 				'extended'=>$extended,
 				'count'=>$count,
@@ -196,5 +197,18 @@
 				'attachments'=>$attachments,
 			));
 			return $data['comment_id'];
+		}
+
+		public static function getVideo($owner_id, $video_id)
+		{
+			$data = App::api('video.get', array(
+				'videos'	=> '-'.$owner_id.'_'.$video_id,
+			));
+			$videos = array();
+			foreach ($data['items'] as $key => $video)
+			{
+				$videos[] = $video;
+			}
+			return $videos;
 		}
 	}

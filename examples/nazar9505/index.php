@@ -7,12 +7,12 @@
 </head>
 <body>
 	<?php
-		require_once('../parses/App.php');
-		require_once('../parses/User.php');
-		require_once('../parses/Post.php');
-		require_once('../parses/Comment.php');
-		require_once('../parses/Group.php');
-		require_once('../parses/Format.php');
+		require_once('../../classes/vk/App.php');
+		require_once('../../classes/vk/User.php');
+		require_once('../../classes/vk/Post.php');
+		require_once('../../classes/vk/Comment.php');
+		require_once('../../classes/vk/Group.php');
+		require_once('../../classes/vk/Format.php');
 
 		define('UID', 261061018);
 		define('GID', 'twplab');
@@ -39,8 +39,9 @@
 					<span class="right"><?=( ($user->online == 1 ? 'Online' : '') )?></span>
 				</h3>
 				<div class="user-info">
-					<p>Страна: <?=$user->country['title']?></p>
-					<p>Город: <?=$user->city['title']?></p>
+					<?
+						// mpr($user)
+					?>
 				</div>
 			</section>
 			<hr>
@@ -71,6 +72,15 @@
 								{?>
 									<? if($file['type'] == 'sticker')
 											$photo = 'photo_128';
+										elseif($file['type'] == 'video')
+										{
+											$video = User::getVideo(substr($file[$file['type']]['owner_id'], 1), $file[$file['type']]['id']);
+											?>
+
+												<iframe src="<?=$video[0]['player']?>" width="100%" style="height: 514px;" frameborder="0" id="framevideo" class="flash"></iframe>
+
+											<?
+										}
 										else
 											$photo = 'photo_604';
 									?>
