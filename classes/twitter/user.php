@@ -1,5 +1,6 @@
 <?
-	class User{
+	class User
+	{
 		public $contributorsEnabled;
 		public $createdAt;
 		public $defaultProfile;
