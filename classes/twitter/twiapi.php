@@ -25,14 +25,35 @@
 			return $this->connection->get("followers/ids", array($param => $val))->ids;
 		}
 
+		function GetFollowersList($param, $val)
+		{
+			return $this->connection->get("followers/list", array($param => $val));
+		}
+
 		function GetAccountSettings()
 		{
-			return $this->connection->get("account/settings");
+			$response = $this->connection->get("account/settings");
+			$result = $response;
+			return $result;
 		}
 
 		function GetUsersLookup($param, $val)
 		{
 			return $this->connection->get("users/lookup", array($param => $val));
+		}
+
+		function GetFriendsIdsByScreenName($sn)
+		{
+			$response = $this->connection->get("friends/ids", array("screen_name" => $sn));
+			$result = $response->ids;
+			return $result;
+		}
+
+		function GetFriendsListByScreenName($sn)
+		{
+			$response = $this->connection->get("friends/list", array("screen_name" => $sn));
+			$result = $response->users;
+			return $result;
 		}
 	}
 ?>
