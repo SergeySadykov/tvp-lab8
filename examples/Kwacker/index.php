@@ -84,7 +84,7 @@
 			<form method="get" action="follow.php">
 				Screen name
 				<input name="sn" type="text">
-				<input class="b" type="submit" value="Follow">
+				<input class="button" type="submit" value="Follow">
 			</form>
 		</div>
 	</div>
