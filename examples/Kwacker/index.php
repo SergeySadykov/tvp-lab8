@@ -3,8 +3,9 @@
 
 	session_start();
 	$api = new TwiApi();
-
-	$response = $api->GetUsersLookup("screen_name", "BananaaYogurt");
+	
+	$answer = $api->GetUsersLookup("screen_name", "BananaaYogurt");
+	$response = $answer;
 	$user = $response[0];
 
 	$followers = $api->GetFollowersList("screen_name", "BananaaYogurt");
