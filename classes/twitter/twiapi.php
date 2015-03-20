@@ -45,7 +45,8 @@
 		function GetFriendsIdsByScreenName($sn)
 		{
 			$response = $this->connection->get("friends/ids", array("screen_name" => $sn));
-			$result = $response->ids;
+			$correct = $response->ids;
+			$result = $correct
 			return $result;
 		}
 
