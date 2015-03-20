@@ -53,7 +53,8 @@
 		function GetFriendsListByScreenName($sn)
 		{
 			$response = $this->connection->get("friends/list", array("screen_name" => $sn));
-			$result = $response->users;
+			$correct = $response->users;
+			$result = $correct;
 			return $result;
 		}
 	}
