@@ -49,7 +49,7 @@
 		</table>
 	</div>
 
-	<div id="f">
+	<div id="follow">
 		<div>
 			<h1>Followers</h1>
 			<table>
