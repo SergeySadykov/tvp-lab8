@@ -4,18 +4,20 @@
 	* information about content posted on Twitter.
 	* Entities are never divorced from the content they describe.
 	*/
+	
+
+	class Hashtags
+	{
+		public $indices;
+		public $text;
+	}
+	
 	class Entity
 	{
 		public $hashtags;
 		public $media;
 		public $urls;
 		public $userMentions;
-	}
-
-	class Hashtags
-	{
-		public $indices;
-		public $text;
 	}
 
 	class Media
