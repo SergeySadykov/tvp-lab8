@@ -1,14 +1,14 @@
 <?
 	class Albums
 	{
-		public $id;  						// - èäåíòèôèêàòîð àëüáîìà;
-		public $thumb_id; 					// — èäåíòèôèêàòîð ôîòîãðàôèè, êîòîðàÿ ÿâëÿåòñÿ îáëîæêîé (0, åñëè îáëîæêà îòñóòñòâóåò);
-		public $owner_id; 					// — èäåíòèôèêàòîð âëàäåëüöà àëüáîìà;
-		public $title; 						// — íàçâàíèå àëüáîìà;
-		public $description; 				// — îïèñàíèå àëüáîìà; (íå ïðèõîäèò äëÿ ñèñòåìíûõ àëüáîìîâ)
-		public $created; 					// — äàòà ñîçäàíèÿ àëüáîìà â ôîðìàòå unixtime; (íå ïðèõîäèò äëÿ ñèñòåìíûõ àëüáîìîâ);
-		public $updated; 					// — äàòà ïîñëåäíåãî îáíîâëåíèÿ àëüáîìà â ôîðìàòå unixtime; (íå ïðèõîäèò äëÿ ñèñòåìíûõ àëüáîìîâ);
-		public $size; 						// — êîëè÷åñòâî ôîòîãðàôèé â àëüáîìå;
+		public $id;  						// - Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã Ã«Ã¼Ã¡Ã®Ã¬Ã ;
+		public $thumb_id; 					// â€” Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨, ÃªÃ®Ã²Ã®Ã°Ã Ã¿ Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã®Ã¡Ã«Ã®Ã¦ÃªÃ®Ã© (0, Ã¥Ã±Ã«Ã¨ Ã®Ã¡Ã«Ã®Ã¦ÃªÃ  Ã®Ã²Ã±Ã³Ã²Ã±Ã²Ã¢Ã³Ã¥Ã²);
+		public $owner_id; 					// â€” Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã¢Ã«Ã Ã¤Ã¥Ã«Ã¼Ã¶Ã  Ã Ã«Ã¼Ã¡Ã®Ã¬Ã ;
+		public $title; 						// â€” Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã ;
+		public $description; 				// â€” Ã®Ã¯Ã¨Ã±Ã Ã­Ã¨Ã¥ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã ; (Ã­Ã¥ Ã¯Ã°Ã¨ÃµÃ®Ã¤Ã¨Ã² Ã¤Ã«Ã¿ Ã±Ã¨Ã±Ã²Ã¥Ã¬Ã­Ã»Ãµ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã®Ã¢)
+		public $created; 					// â€” Ã¤Ã Ã²Ã  Ã±Ã®Ã§Ã¤Ã Ã­Ã¨Ã¿ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã  Ã¢ Ã´Ã®Ã°Ã¬Ã Ã²Ã¥ unixtime; (Ã­Ã¥ Ã¯Ã°Ã¨ÃµÃ®Ã¤Ã¨Ã² Ã¤Ã«Ã¿ Ã±Ã¨Ã±Ã²Ã¥Ã¬Ã­Ã»Ãµ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã®Ã¢);
+		public $updated; 					// â€” Ã¤Ã Ã²Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã­Ã¥Ã£Ã® Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã¨Ã¿ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã  Ã¢ Ã´Ã®Ã°Ã¬Ã Ã²Ã¥ unixtime; (Ã­Ã¥ Ã¯Ã°Ã¨ÃµÃ®Ã¤Ã¨Ã² Ã¤Ã«Ã¿ Ã±Ã¨Ã±Ã²Ã¥Ã¬Ã­Ã»Ãµ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã®Ã¢);
+		public $size; 						// â€” ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã© Ã¢ Ã Ã«Ã¼Ã¡Ã®Ã¬Ã¥;
 		public $privacy_view = array();
 		public $privacy_comment = array();
 		public $photo_75;
@@ -32,7 +32,7 @@
 			}
 		}
 		
-		public static function getAlbums($owner_id, $need_system) // îëó÷åíèå ñïèñêà àëüáîìîâ ïî id ïîëüçîâàòåëß, $owner - id user, $need_system - view system albums
+		public static function getAlbums($owner_id, $need_system) // ÂÃ®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã¯Ã¨Ã±ÃªÃ  Ã Ã«Ã¼Ã¡Ã®Ã¬Ã®Ã¢ Ã¯Ã® id Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã²Ã¥Ã«ÃŸ, $owner - id user, $need_system - view system albums
 		{
 			$data = Api::api_call('photos.getAlbums', array ( 'owner_id' => $owner_id, 'need_system' => $need_system));
 			$data_parse = array();
@@ -50,7 +50,7 @@
 						if ($data['items'][$i]['thumb_id'] == $value->id)
 						{
 							$data['items'][$i]['photo_75'] = $value->photo_75;
-							$data['items'][$i]['photo_130'] = $value->photo_130;
+							$data['items'][$i]['photo_130'] = $value->photo_130;
 							$data['items'][$i]['photo_604'] = $value->photo_604;
 							$data['items'][$i]['photo_1280'] = $value->photo_1280;
 							$data['items'][$i]['photo_2560'] = $value->photo_2560;
@@ -62,24 +62,65 @@
 			}
 			return $data_parse;
 		}
+		
+		
+		public static function createAlbum($title, $group_id, $description, $privacy, $commennt_privacy, $upload_by_admins_only, $comments_disabled){
+			$data = Api::api_call('photos.createAlbum', array ( 'title' => $title, 'group_id' => $group_id, 'description' => $description, 'privacy' => $privacy, 'comment_privacy' => $comment_privacy, 'upload_by_admins_only' => $upload_by_admins_only, 'comments_disabled' => $comments_disabled));
+			return new Albums($data[0]);
+		}
+		
+		public static function editAlbum($album_id, $title, $description, $owner_id, $privacy, $commennt_privacy, $upload_by_admins_only, $comments_disabled){
+			$result = Api::api_call('photos.editAlbum', array ( 'album_id' => $album_id, 'title' => $title, 'description' => $description, 'owner_id' => $owner_id, 'privacy' => $privacy, 'comment_privacy' => $comment_privacy, 'upload_by_admins_only' => $upload_by_admins_only, 'comments_disabled' => $comments_disabled));
+			if ($result[0] == 1) {
+				return "Successful";
+			} else {
+				if ($album_id < 0) {
+					return "$album_id is a system album, error.";
+				} else {
+					return "Error";
+				}
+			}
+		}
+		
+		public static function deleteAlbum($album_id, $group_id) {
+			$result = Api::api_call('photos.deleteAlbum', array ( 'album_id' => $album_id, 'group_id' => $group_id ));
+			if ($result[0] == 1) {
+				return "Successful";
+			} else {
+				if ($album_id < 0) {
+					return "$album_id is a system album, error.";
+				} else {
+					return "Error";
+				}
+			}
+		}
+		
+		public static function reorderAlbums($owner_id, $album_id, $before, $after){
+			$result = Api::api_call('photos.reorderAlbums', array ( 'owner_id' => $owner_id, 'album_id' => $album_id, 'before' => $before, 'after' => $after ));
+			if ($result[0] == 1) { 
+				return "Successful";
+			} else { 
+				return "Error";
+			}
+		}
 	}
 	
 	class Photos
 	{
-		public $id;			//èäåíòèôèêàòîð ôîòîãðàôèè. ïîëîæèòåëüíîå ÷èñëî
-		public $album_id;	//èäåíòèôèêàòîð àëüáîìà, â êîòîðîì íàõîäèòñß ôîòîãðàôèß. int (÷èñëîâîå çíà÷åíèå)
-		public $owner_id;	//èäåíòèôèêàòîð âëàäåëüöà ôîòîãðàôèè. int (÷èñëîâîå çíà÷åíèå)
-		public $user_id;	//èäåíòèôèêàòîð ïîëüçîâàòåëß, çàãðóçèâøåãî ôîòî (åñëè ôîòîãðàôèß ðàçìåùåíà â ñîîáùåñòâå). „ëß ôîòîãðàôèé, ðàçìåùåííûõ îò èìåíè ñîîáùåñòâà, user_id=100. ïîëîæèòåëüíîå ÷èñëî
-		public $photo_75;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 75x75px. ñòðîêà
-		public $photo_130;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 130x130px. ñòðîêà
-		public $photo_604;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 604x604px. ñòðîêà
-		public $photo_807;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 807x807px. ñòðîêà
-		public $photo_1280;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 1280x1024px. ñòðîêà
-		public $photo_2560;	//url êîïèè ôîòîãðàôèè ñ ìàêñèìàëüíûì ðàçìåðîì 2560x2048px. ñòðîêà
-		public $width;		//øèðèíà îðèãèíàëà ôîòîãðàôèè â ïèêñåëàõ. ïîëîæèòåëüíîå ÷èñëî
-		public $height;		//âûñîòà îðèãèíàëà ôîòîãðàôèè â ïèêñåëàõ. ïîëîæèòåëüíîå ÷èñëî
-		public $text;		//òåêñò îïèñàíèß ôîòîãðàôèè. ñòðîêà
-		public $date;		//äàòà äîáàâëåíèß â ôîðìàòå unixtime. ïîëîæèòåëüíîå ÷èñëî
+		public $id;			//Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨. Ã¯Ã®Ã«Ã®Ã¦Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®
+		public $album_id;	//Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã Ã«Ã¼Ã¡Ã®Ã¬Ã , Ã¢ ÃªÃ®Ã²Ã®Ã°Ã®Ã¬ Ã­Ã ÃµÃ®Ã¤Ã¨Ã²Ã±ÃŸ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨ÃŸ. int (Ã·Ã¨Ã±Ã«Ã®Ã¢Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥)
+		public $owner_id;	//Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã¢Ã«Ã Ã¤Ã¥Ã«Ã¼Ã¶Ã  Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨. int (Ã·Ã¨Ã±Ã«Ã®Ã¢Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥)
+		public $user_id;	//Ã¨Ã¤Ã¥Ã­Ã²Ã¨Ã´Ã¨ÃªÃ Ã²Ã®Ã° Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã²Ã¥Ã«ÃŸ, Ã§Ã Ã£Ã°Ã³Ã§Ã¨Ã¢Ã¸Ã¥Ã£Ã® Ã´Ã®Ã²Ã® (Ã¥Ã±Ã«Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨ÃŸ Ã°Ã Ã§Ã¬Ã¥Ã¹Ã¥Ã­Ã  Ã¢ Ã±Ã®Ã®Ã¡Ã¹Ã¥Ã±Ã²Ã¢Ã¥). â€žÃ«ÃŸ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã©, Ã°Ã Ã§Ã¬Ã¥Ã¹Ã¥Ã­Ã­Ã»Ãµ Ã®Ã² Ã¨Ã¬Ã¥Ã­Ã¨ Ã±Ã®Ã®Ã¡Ã¹Ã¥Ã±Ã²Ã¢Ã , user_id=100. Ã¯Ã®Ã«Ã®Ã¦Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®
+		public $photo_75;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 75x75px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $photo_130;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 130x130px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $photo_604;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 604x604px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $photo_807;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 807x807px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $photo_1280;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 1280x1024px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $photo_2560;	//url ÃªÃ®Ã¯Ã¨Ã¨ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã± Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã¬ Ã°Ã Ã§Ã¬Ã¥Ã°Ã®Ã¬ 2560x2048px. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $width;		//Ã¸Ã¨Ã°Ã¨Ã­Ã  Ã®Ã°Ã¨Ã£Ã¨Ã­Ã Ã«Ã  Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã¢ Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã Ãµ. Ã¯Ã®Ã«Ã®Ã¦Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®
+		public $height;		//Ã¢Ã»Ã±Ã®Ã²Ã  Ã®Ã°Ã¨Ã£Ã¨Ã­Ã Ã«Ã  Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã¢ Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã Ãµ. Ã¯Ã®Ã«Ã®Ã¦Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®
+		public $text;		//Ã²Ã¥ÃªÃ±Ã² Ã®Ã¯Ã¨Ã±Ã Ã­Ã¨ÃŸ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨. Ã±Ã²Ã°Ã®ÃªÃ 
+		public $date;		//Ã¤Ã Ã²Ã  Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨ÃŸ Ã¢ Ã´Ã®Ã°Ã¬Ã Ã²Ã¥ unixtime. Ã¯Ã®Ã«Ã®Ã¦Ã¨Ã²Ã¥Ã«Ã¼Ã­Ã®Ã¥ Ã·Ã¨Ã±Ã«Ã®
 		public $likes = array();
 		public $comments = array();
 		public $tags = array();
@@ -98,7 +139,7 @@
 			}
 		}
 		
-		public static function get($owner_id, $album_id, $extended, $rev) // îëó÷åíèå ôîòîãðàôèé èç óêàçàííîãî àëüáîìà
+		public static function get($owner_id, $album_id, $extended, $rev) // ÂÃ®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¥ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã© Ã¨Ã§ Ã³ÃªÃ Ã§Ã Ã­Ã­Ã®Ã£Ã® Ã Ã«Ã¼Ã¡Ã®Ã¬Ã 
 		{
 			$data = Api::api_call('photos.get', array ( 'owner_id' => $owner_id, 'album_id' => $album_id, 'extended' => $extended, 'rev' => $rev)); // Decode_JSON
 			$data_parse = array();
@@ -109,7 +150,7 @@
 			return $data_parse;
 		}
 		
-		public static function makeCover($owner_id, $photo_id, $album_id) // “ñòàíîâëåíèå ôîòîãðàôèè îáëîæêîé àëüáîìà
+		public static function makeCover($owner_id, $photo_id, $album_id) // â€œÃ±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã¨Ã¥ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã®Ã¡Ã«Ã®Ã¦ÃªÃ®Ã© Ã Ã«Ã¼Ã¡Ã®Ã¬Ã 
 		{
 			$result = Api::api_call('photos.makeCover', array( 'owner_id' => $owner_id, 'photo_id' => $photo_id, 'album_id' => $album_id ));
 			if ($result[0] == 1)
@@ -129,14 +170,14 @@
 			}
 		}
 		
-		public static function getById($owner_id, $photos, $extended) // îëó÷åíèå èíôîðìàöèè ïî îòäåëüíîé ôîòîãðàôèè
+		public static function getById($owner_id, $photos, $extended) // ÂÃ®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¥ Ã¨Ã­Ã´Ã®Ã°Ã¬Ã Ã¶Ã¨Ã¨ Ã¯Ã® Ã®Ã²Ã¤Ã¥Ã«Ã¼Ã­Ã®Ã© Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨
 		{
 			$photo = $owner_id.'_'.$photos;
 			$data = Api::api_call('photos.getById', array ( 'photos' => $photo, 'extended' => $extended ));
 			return new Photos($data[0]);
 		}
 		
-		public static function move($owner_id, $target_album_id, $photo_id) // åðåìåùåíèå ôîòîãðàôèè èç îäíîãî àëüáîìà â äðóãîé
+		public static function move($owner_id, $target_album_id, $photo_id) // ÂÃ¥Ã°Ã¥Ã¬Ã¥Ã¹Ã¥Ã­Ã¨Ã¥ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨ Ã¨Ã§ Ã®Ã¤Ã­Ã®Ã£Ã® Ã Ã«Ã¼Ã¡Ã®Ã¬Ã  Ã¢ Ã¤Ã°Ã³Ã£Ã®Ã©
 		{
 			$result = Api::api_call('photos.move', array ( 'owner_id' => $owner_id, 'target_album_id' => $target_album_id, 'photo_id' => $photo_id));
 			mpr($result);
@@ -157,7 +198,7 @@
 			}
 		}
 		
-		public static function edit($owner_id, $photo_id, $caption) // ˆçìåíåíèå îïèñàíèß ôîòîãðàôèè
+		public static function edit($owner_id, $photo_id, $caption) // Ë†Ã§Ã¬Ã¥Ã­Ã¥Ã­Ã¨Ã¥ Ã®Ã¯Ã¨Ã±Ã Ã­Ã¨ÃŸ Ã´Ã®Ã²Ã®Ã£Ã°Ã Ã´Ã¨Ã¨
 		{
 			$result = Api::api_call('photos.edit', array ( 'owner_id' => $owner_id, 'photo_id' => $photo_id, 'caption' => $caption ));
 			if ($result == 1)
