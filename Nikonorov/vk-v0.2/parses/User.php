@@ -96,4 +96,24 @@
 				return $interval->y;
 			}
 		}
+		
+		public static function getFriends($id_user, $count = 10, $offset = 2)
+	{
+		$data=App::api('friends.get', array(
+			'user_id' => $id_user,
+			'count' => $count,
+			'offset' => $offset,
+			'fields' => 'domain, photo_50')
+		);
+		
+		$users = array();
+		foreach($data as $key => $user)
+		{
+			$users[] = $user;
+		}
+		return $users;
+	}
+		
+				
+		
 	}

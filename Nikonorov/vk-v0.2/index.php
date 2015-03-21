@@ -14,7 +14,7 @@
 		require_once('parses/Comment.php');
 		require_once('parses/Group.php');
 		
-		define('UID', nikich_nikonorov);
+		define('UID', 27493985);
 		$uposts = Api::getPosts(UID, 9);
 		
 		
@@ -31,6 +31,21 @@
 			<figure>
 				<img src="<?=$user->photo_200?>" alt="">
 			</figure>
+			<div id="friends">
+				Тут друзья
+				<?
+					$friends = User::getFriends(UID);
+					foreach($friends as $key => $friend)
+					{?>
+						<div class="friends">
+							<img src="<?=$friend['photo_50']?>" >
+							<div class="fbody">
+								<?=$friend['first_name']?> <?=$friend['last_name']?>	
+							</div>
+						</div>
+					<?}
+				?>
+			</div>
 		</aside>
 		<aside class="aside-right">
 			<section class="info">

@@ -11,6 +11,7 @@ class Api{
 		));
 		return new User($data[0]);
 	}
+	
 
 	public static function getUserAdminGroupsName($id_user, $count = 10, $offset = 0)
 	{
