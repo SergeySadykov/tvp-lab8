@@ -107,7 +107,7 @@
 			return new User($data[0]);
 		}
 
-		public static function getUserAdminGroupsName($id_user, $count = 10, $offset = 0)
+		public static function getUserGroups($id_user, $count = 10, $offset = 0)
 		{
 			$data = App::api('groups.get', array(
 				'user_id'=> intval($id_user),
@@ -116,8 +116,31 @@
 				'count'=>$count,
 				'fields'=> 'city, country, place, description, wiki_page, members_count, counters, start_date, finish_date, can_post, can_see_all_posts, activity, status, contacts, links, fixed_post, verified, site, can_create_topic'
 			));
-			$adminGroups = array();
+			$groups = array();
 			foreach ($data['items'] as $key => $group)
+			{
+				$groups[] = new Group($group);
+			}
+			return $groups;
+		}
+
+
+		public static function getUsetGroupsName($id_user, $count = 10, $offset = 0)
+		{
+			$groups = self::getUserGroups($user_id);
+			$names = array();
+			foreach ($groups as $key => $group)
+			{
+				$names[] = $group['name'];
+			}
+			return $names;
+		}
+
+		public static function getUserAdminGroupsName($id_user, $count = 10, $offset = 0)
+		{
+			$groups = self::getUserGroups($id_user);
+			$adminGroups = array();
+			foreach ($groups as $key => $group)
 			{
 				if ($group['is_admin'] == 1 && $group['admin_level'] == 3)
 				{

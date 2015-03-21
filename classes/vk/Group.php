@@ -136,4 +136,22 @@
 			));
 			return $data['comment_id'];
 		}
+
+		public static function getMembers($domain, $sort = 'id_asc', $filter = '', $offset = 0, $count = 10)
+		{
+			$group_id = self::getGroup($domain)->id;
+			$data = App::api('groups.getMembers', array(
+				'group_id'=>$group_id,
+				'sort'=>$sort,
+				'offset'=>$offset,
+				'filter'=>$filter,
+				'count'=>$count
+			));
+			$users = array();
+			foreach ($data['items'] as $key => $user_id)
+			{
+				$users[] = User::getUser(intval($user_id));
+			}
+			return $users;
+		}
 	}
